@@ -19,3 +19,14 @@ resource "aws_instance" "webserver" {
 resource "aws_key_pair" "web" {
   public_key = file("~/.ssh/tf_ec2.pub")
 }
+
+resource "aws_security_group" "ssh-access" {
+  name = "ssh-access"
+  description = "AllowSSH access from the Internet"
+  ingress{
+    cidr_blocks = [ "0.0.0.0/0" ]
+    from_port = 22
+    protocol = "tcp"
+    to_port = 22
+  }
+}
