@@ -13,3 +13,7 @@ resource "aws_instance" "webserver" {
                 systemctl start nginx
                 EOF
 }
+
+resource "aws_key_pair" "web" {
+  public_key = file("~/.ssh/tf_ec2.pub")
+}
