@@ -1,5 +1,5 @@
 resource "aws_instance" "webserver" {
-    ami = "ami-0edab43b6fa892279" 
+    ami = "ami-0885b1f6bd170450c" 
     instance_type = "t3.micro"
     tags = {
       "Name" = "webserver"
@@ -12,6 +12,8 @@ resource "aws_instance" "webserver" {
                 systemctl enable nginx
                 systemctl start nginx
                 EOF
+
+    key_name = aws_key_pair.web.id
 }
 
 resource "aws_key_pair" "web" {
