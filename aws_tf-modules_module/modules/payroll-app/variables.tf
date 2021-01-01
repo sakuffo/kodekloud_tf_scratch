@@ -10,5 +10,4 @@ variable "bucket" {
 
 variable "ami" {
   type    = string
-  default = "ami-0885b1f6bd170450c"
 }
